@@ -1,6 +1,7 @@
 import javax.swing.JButton;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class Button extends JButton {
 
     int val;
