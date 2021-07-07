@@ -2,6 +2,7 @@ import java.awt.*;
 import java.util.Random;
 import javax.swing.*;
 
+@SuppressWarnings({ "serial" })
 public class StartScreen extends JFrame {
 
     private int width = 300, height = 300, rows = 4, cols = 4;
