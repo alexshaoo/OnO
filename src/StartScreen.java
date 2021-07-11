@@ -18,8 +18,43 @@ public class StartScreen extends JFrame {
             int result = r.nextInt(high - low) + low;
             Button b = new Button(result); // this shows the number
             this.add(b);
+           b.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                	b.updateValue();
+                }
+            });
         }
-
+        JButton EndGame = new JButton("End");
+        JButton Undo = new JButton("Undo");
+        JButton NewGame = new JButton("New Game");
+        this.add(EndGame);
+        this.add(Undo);
+        this.add(NewGame);
+        EndGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+            }
+        });
+        EndGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+            }
+        });
+        Undo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+            }
+        });
+        NewGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new StartScreen();
+            }
+        });
         this.setPreferredSize(new Dimension(width, height));
         this.pack();
         this.setVisible(true);
