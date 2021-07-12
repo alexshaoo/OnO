@@ -52,12 +52,17 @@ public class StartScreen extends JFrame {
         NewGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                close();
             	new StartScreen();
             }
         });
         this.setPreferredSize(new Dimension(width, height));
         this.pack();
         this.setVisible(true);
+    }
+    
+    public void close() {
+    	this.dispose();
     }
 
     public static int yesNo(String theMessage) {
