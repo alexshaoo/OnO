@@ -17,6 +17,9 @@ public class StartScreen extends JFrame {
         for (int i = 0; i < 16; i++) {
             int result = r.nextInt(high - low) + low;
             Button b = new Button(result); // this shows the number
+            if (result == 1) {
+            	 b.setEnabled(false);
+            }
             this.add(b);
            b.addActionListener(new ActionListener() {
                 @Override
