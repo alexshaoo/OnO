@@ -10,6 +10,7 @@ public class Board extends JPanel {
         super();
         this.setLayout(new GridLayout(length, height));
 
+        // button array
         buttons = new Button[length][height];
 
         Random r = new Random();
