@@ -21,6 +21,7 @@ public class Opening {
 	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 20);
 	JTextArea messageText;
 	play clickPlay = new play();
+	play2 clickPlay2 = new play2();
 	how2play seeRules = new how2play();
 	backToStart backPage = new backToStart();
 	
@@ -99,25 +100,32 @@ public class Opening {
 		backButton.setForeground(Color.white);
 		backButton.setFont(buttonFont);
 		backButton.addActionListener(backPage);
-		backButton.setActionCommand("c1");
 		backPanel.add(backButton);
 		
 		playButton = new JButton("PLAY");
 		playButton.setBackground(Color.black);
 		playButton.setForeground(Color.white);
 		playButton.setFont(buttonFont);
-		playButton.addActionListener(clickPlay);
+		playButton.addActionListener(clickPlay2);
 		backPanel.add(playButton);
 	}
 	
 	public class play implements ActionListener {
 		@SuppressWarnings("unused")
 		public void actionPerformed(ActionEvent event) {
-				f.setVisible(false);
-				messagePanel.setVisible(false);
-				backPanel.setVisible(false);
-				Game game = new Game();			
-			} 
+			f.setVisible(false);
+			Game game = new Game();			
+		} 
+	}
+	
+	public class play2 implements ActionListener {
+	@SuppressWarnings("unused")
+		public void actionPerformed(ActionEvent event) {
+			f.setVisible(false);
+			messagePanel.setVisible(false);
+			backPanel.setVisible(false);
+			NewGame game = new NewGame();
+		}
 	}
 	
 	public class how2play implements ActionListener {
