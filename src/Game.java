@@ -4,7 +4,9 @@ import java.awt.*;
 public class Game extends JFrame{
 
     private int width = 800, height = 800, xSquares = 4, ySquares = 4;
-
+	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 15);
+	endGame end = new endGame();
+    
     public Game() {
         super("OnO");
 
@@ -26,10 +28,23 @@ public class Game extends JFrame{
 
         this.add(board, c);
 
+       // find a way to make buttons smaller
+        
         JButton EndGame = new JButton("End");
-        // We won't worry about undo for now
-        JButton Undo = new JButton("Undo");
+		EndGame.setBackground(Color.black);
+		EndGame.setForeground(Color.white);
+		EndGame.setFont(buttonFont);
+		EndGame.addActionListener(end);
+
+		JButton Undo = new JButton("Undo");
+		Undo.setBackground(Color.black);
+		Undo.setForeground(Color.white);
+		Undo.setFont(buttonFont);
+
         JButton NewGame = new JButton("New Game");
+		NewGame.setBackground(Color.black);
+		NewGame.setForeground(Color.white);
+		NewGame.setFont(buttonFont);
 
         // fit 3
         c.gridwidth = 1;
@@ -60,4 +75,11 @@ public class Game extends JFrame{
         this.pack();
         this.setVisible(true);
     }
+
+   	public class endGame implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+				System.exit(0);
+			} 
+	}
+    
 }
