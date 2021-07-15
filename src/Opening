@@ -130,13 +130,16 @@ public class Opening {
 	
 	public class how2play implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-				Rules();
+			Rules();
 			} 
 	}
 	
 	public class backToStart implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-				new Opening();
+			f.setVisible(false);
+			messagePanel.setVisible(false);
+			backPanel.setVisible(false);
+			new Opening();
 			} 
 		
 	}
