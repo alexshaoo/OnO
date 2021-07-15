@@ -114,6 +114,8 @@ public class Opening {
 		@SuppressWarnings("unused")
 		public void actionPerformed(ActionEvent event) {
 				f.setVisible(false);
+				messagePanel.setVisible(false);
+				backPanel.setVisible(false);
 				Game game = new Game();			
 			} 
 	}
