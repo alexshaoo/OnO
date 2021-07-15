@@ -1,25 +1,27 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
-public class Board {
+public class Board extends JPanel {
 
-    public static void main(String[] args) {
-        int[][] board = new int[4][4];
+    public Board(int length, int height) {
+        super();
+        this.setLayout(new GridLayout(length, height));
+
         Random r = new Random();
-        int low = 0;
-        int high = 2;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                int result = r.nextInt(high-low) + low;
-                board[i][j] = result;
+        int low = 0, high = 2;
+
+        for (int i = 0; i < 16; i++) {
+            int result = r.nextInt(high - low) + low;
+            Button b = new Button(result); // this shows the number
+            if (result == 1) {
+                b.setEnabled(false);
             }
+            this.add(b);
         }
-
-        for(int[] row : board) {
-            printRow(row);
-        }
-
     }
 
+    // for debugging i guess (smart move, Ada)
     public static void printRow(int[] row) {
         for (int i : row) {
             System.out.print(i);
