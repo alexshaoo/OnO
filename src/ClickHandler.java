@@ -7,7 +7,7 @@ public class ClickHandler implements ActionListener {
         if (e.getSource() instanceof Button) {
             Button b = (Button) e.getSource();
 
-            // Update colour and value added
+            // test
             b.updateValue();
         }
     }
