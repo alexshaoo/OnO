@@ -21,7 +21,7 @@ public class Board extends JPanel {
         }
     }
 
-    // for debugging i guess (smart move Ada)
+    // for debugging i guess (smart move, Ada)
     public static void printRow(int[] row) {
         for (int i : row) {
             System.out.print(i);
