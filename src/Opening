@@ -18,7 +18,7 @@ public class Opening {
 	JLabel titleLabel;
 	JButton playButton, rulesButton, backButton;
 	Font title = new Font("Curlz MT", Font.PLAIN, 100);
-	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 15);
+	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 20);
 	JTextArea messageText;
 	play clickPlay = new play();
 	how2play seeRules = new how2play();
@@ -75,7 +75,12 @@ public class Opening {
 		titlePanel.setVisible(false);
 		buttonPanel.setVisible(false);  
 
-		messageText = new JTextArea("LALALA\nLALALA");
+		messageText = new JTextArea("Welcome to OnO D: !! Here are the rules:\n "
+				+ "1. single tap for blue, double tap for red;\n"
+				+ "2. you can't have 3 of the same colour side by side in a row/column;\n"
+				+ "3. in every row/column, there must be the same number of blues and reds;\n"
+				+ "4. no column/row can have the same colour pattern.\n"
+				+ "That's it, have fun!");
 		messageText.setBounds(100, 100, 600, 250);
 		messageText.setBackground(Color.black);
 		messageText.setForeground(Color.white);
@@ -84,9 +89,9 @@ public class Opening {
 		messagePanel.add(messageText);
 		
 		backPanel = new JPanel();
-		backPanel.setBounds(350, 350, 100, 50); // how to make button smaller lol
+		backPanel.setBounds(350, 350, 150, 100);
 		backPanel.setBackground(Color.red);
-		backPanel.setLayout(new GridLayout(1, 1));
+		backPanel.setLayout(new GridLayout(2, 1));
 		con.add(backPanel);
 		
 		backButton = new JButton("BACK");
@@ -96,6 +101,13 @@ public class Opening {
 		backButton.addActionListener(backPage);
 		backButton.setActionCommand("c1");
 		backPanel.add(backButton);
+		
+		playButton = new JButton("PLAY");
+		playButton.setBackground(Color.black);
+		playButton.setForeground(Color.white);
+		playButton.setFont(buttonFont);
+		playButton.addActionListener(clickPlay);
+		backPanel.add(playButton);
 	}
 	
 	public class play implements ActionListener {
