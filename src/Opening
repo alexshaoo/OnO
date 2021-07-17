@@ -30,6 +30,7 @@ public class Opening {
 		f.setSize(800, 600); // I'll figure out a way that makes JFrame adjust proportions when window size changes
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.getContentPane().setBackground(Color.black);
+		f.setLocation(400, 100);
 		f.setLayout(null);
 		con = f.getContentPane();
 		
