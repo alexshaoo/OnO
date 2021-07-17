@@ -125,7 +125,7 @@ public class Opening {
 			f.setVisible(false);
 			messagePanel.setVisible(false);
 			backPanel.setVisible(false);
-			NewGame game = new NewGame();
+			Game game = new NGame();
 		}
 	}
 	
