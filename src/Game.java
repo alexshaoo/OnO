@@ -72,6 +72,7 @@ public class Game extends JFrame{
         */
         this.setPreferredSize(new Dimension(width, height));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	this.setLocation(450, 30);
         this.pack();
         this.setVisible(true);
     }
