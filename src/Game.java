@@ -6,6 +6,7 @@ public class Game extends JFrame{
     private int width = 800, height = 800, xSquares = 4, ySquares = 4;
 	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 15);
 	endGame end = new endGame();
+	newGame newG = new newGame();
     
     public Game() {
         super("OnO");
@@ -45,6 +46,7 @@ public class Game extends JFrame{
 		NewGame.setBackground(Color.black);
 		NewGame.setForeground(Color.white);
 		NewGame.setFont(buttonFont);
+   		NewGame.addActionListener(newG);
 
         // fit 3
         c.gridwidth = 1;
@@ -55,21 +57,7 @@ public class Game extends JFrame{
         this.add(Undo, c);
         c.gridx = 2;
         this.add(NewGame, c);
-        /*
-        EndGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        NewGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                close();
-                new StartScreen();
-            }
-        });
-        */
+
         this.setPreferredSize(new Dimension(width, height));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	this.setLocation(450, 30);
@@ -82,5 +70,17 @@ public class Game extends JFrame{
 				System.exit(0);
 			} 
 	}
+	
+	public class newGame implements ActionListener {
+   		public void actionPerformed(ActionEvent event) {
+   			close();
+			@SuppressWarnings("unused")
+			NewGame game = new NewGame();
+   		}
+   	}
+   	
+   	public void close() {
+   		this.dispose();
+   	}
     
 }
