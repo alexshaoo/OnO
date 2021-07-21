@@ -5,11 +5,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.GroupLayout.Alignment;
 
 public class Opening {
 	Container con;
@@ -27,7 +30,7 @@ public class Opening {
 	
 	public Opening() {
 		f = new JFrame();
-		f.setSize(800, 600); // I'll figure out a way that makes JFrame adjust proportions when window size changes
+		f.setSize(800, 600);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.getContentPane().setBackground(Color.black);
 		f.setLocation(400, 100);
@@ -54,6 +57,9 @@ public class Opening {
 		playButton.setFont(buttonFont);
 		playButton.addActionListener(clickPlay);
 		
+		Box horizontalBox = Box.createHorizontalBox();
+		titlePanel.add(horizontalBox);
+		
 		rulesButton = new JButton("RULES");
 		rulesButton.setBackground(Color.black);
 		rulesButton.setForeground(Color.white);
@@ -66,6 +72,30 @@ public class Opening {
 		
 		con.add(titlePanel);
 		con.add(buttonPanel);
+		
+		GroupLayout groupLayout = new GroupLayout(f.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(300)
+					.addComponent(buttonPanel, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+					.addGap(286))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(99)
+					.addComponent(titlePanel, GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+					.addGap(85))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(124)
+					.addComponent(titlePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(133)
+					.addComponent(buttonPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(97, Short.MAX_VALUE))
+		);
+		f.getContentPane().setLayout(groupLayout);
+		
 		f.setVisible(true);
 	}
 	
@@ -109,6 +139,28 @@ public class Opening {
 		playButton.setFont(buttonFont);
 		playButton.addActionListener(clickPlay2);
 		backPanel.add(playButton);
+		
+		GroupLayout groupLayout = new GroupLayout(f.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(100)
+					.addComponent(messagePanel, GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
+					.addGap(86))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(350)
+					.addComponent(backPanel, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+					.addGap(286))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(100)
+					.addComponent(messagePanel, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+					.addComponent(backPanel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addGap(113))
+		);
+		f.getContentPane().setLayout(groupLayout);
 	}
 	
 	public class play implements ActionListener {
