@@ -7,29 +7,20 @@ public class Game extends JFrame{
 	Font buttonFont = new Font("Times New Roman", Font.PLAIN, 15);
 	endGame end = new endGame();
 	newGame newG = new newGame();
+	static int interval;
+	static Timer timer;
+    	JButton timerButton;
     
     public Game() {
         super("OnO");
 
-        // gridbaglayout is flexible but kinda complicated
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.BOTH;
-
-        c.weightx = 1;
-        c.weighty = 1;
-
-        c.gridwidth = 3;
-        c.gridheight = 3;
-
-        Board board = new Board(xSquares, ySquares);
-        // board at top left
-        c.gridx = 0;
-        c.gridy = 0;
-
-        this.add(board, c);
-
-       // find a way to make buttons smaller
+        NewBoard board = new NewBoard(xSquares, ySquares);
+        this.add(board, BorderLayout.CENTER);
+        
+        JPanel p = new JPanel();
+	p.setBackground(Color.white);
+	p.setForeground(Color.white);
+        this.add(p, BorderLayout.PAGE_END);
         
         JButton EndGame = new JButton("End");
 		EndGame.setBackground(Color.black);
@@ -48,15 +39,16 @@ public class Game extends JFrame{
 		NewGame.setFont(buttonFont);
    		NewGame.addActionListener(newG);
 
-        // fit 3
-        c.gridwidth = 1;
-        c.gridheight = 1;
-        c.gridy = 3;
-        this.add(EndGame, c);
-        c.gridx = 1;
-        this.add(Undo, c);
-        c.gridx = 2;
-        this.add(NewGame, c);
+        p.add(EndGame);
+        p.add(Undo);
+        p.add(NewGame);
+	    
+       	timerButton = new JButton();
+        this.add(timerButton, BorderLayout.PAGE_START);
+        timerButton.setBackground(Color.white);
+        timerButton.setForeground(Color.black);
+        timerButton.setFont(timerFont);
+        timerMain();
 
         this.setPreferredSize(new Dimension(width, height));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -82,5 +74,29 @@ public class Game extends JFrame{
    	public void close() {
    		this.dispose();
    	}
+	
+	public void timerMain() {
+		int delay = 1000;
+		int period = 1000;
+		timer = new Timer();
+		interval = 11;
+		timer.scheduleAtFixedRate(new TimerTask() {
+
+			public void run() {		        
+//		        timerLabel.setText("Time left: " + setInterval());
+				timerButton.setText("Time left: " + setInterval());
+			}
+		}, delay, period);
+   	}
+   	
+	private static final int setInterval() {
+		if (interval == 0) {
+			timer.cancel();
+			JOptionPane.showMessageDialog(null, "TIME UP!",
+		    	      "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+		}
+		return --interval;
+	}
     
 }
