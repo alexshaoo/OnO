@@ -1,4 +1,9 @@
-import javax.swing.*;
+// import javax.swing.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 public class StartScreen {
 
@@ -14,4 +19,14 @@ public class StartScreen {
     } */
         
        	new Opening();
+   	try {
+        	FileInputStream fis = new FileInputStream("OnO BGM.mp3");
+		Player player = new Player(fis);
+		player.play();
+		System.out.println("Song is playing!");
+	} catch(FileNotFoundException e) {
+		e.printStackTrace();
+	} catch(JavaLayerException e) {
+		e.printStackTrace();
+	}
 }
