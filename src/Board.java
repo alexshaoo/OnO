@@ -1,42 +1,42 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
 
 public class Board extends JPanel {
 
     Button[][] buttons;
+    int[][] vals = {{0, 1, 0, 0}, {0, 1, 0, 1}, {0, 0, 2, 0}, {0, 0, 0, 0}};
+    int size;
 
-    public Board(int length, int height) {
+    public Board(int size) {
         super();
-        this.setLayout(new GridLayout(length, height));
+        this.setLayout(new GridLayout(size, size));
 
-        buttons = new Button[length][height];
+        buttons = new Button[size][size];
+        this.size = size;
 
-        Random r = new Random();
-        int low = 0, high = 2;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                int result = r.nextInt(high - low) + low;
-                Button b = new Button(result); // this shows the number
-                if (result == 1) {
-                    b.setEnabled(false);
-                }
-
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                Button b = new Button(vals[i][j]); // this shows the number
                 buttons[i][j] = b;
 
                 this.add(b);
             }
         }
+
+        Solver solver = new Solver(this);
+
+        solver.solve();
+        this.vals = solver.getVals();
+        printGrid();
     }
 
     // for debugging i guess (smart move, Ada)
-    public static void printRow(int[] row) {
-        for (int i : row) {
-            System.out.print(i);
-            System.out.print("\t");
+    public void printGrid() {
+        for (int[] row : this.vals) {
+            for (int i : row) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
-
 }
