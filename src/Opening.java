@@ -1,5 +1,7 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.GroupLayout.Alignment;
 
 public class Opening {
 	Container con;
@@ -193,8 +194,7 @@ public class Opening {
 			messagePanel.setVisible(false);
 			backPanel.setVisible(false);
 			new Opening();
-			} 
+    } 
 		
 	}
-	
 }
