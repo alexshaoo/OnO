@@ -1,7 +1,5 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -14,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.GroupLayout.Alignment;
 
 public class Opening {
 	Container con;
@@ -86,6 +85,7 @@ public class Opening {
 					.addComponent(titlePanel, GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
 					.addGap(85))
 		);
+		
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -95,8 +95,8 @@ public class Opening {
 					.addComponent(buttonPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(97, Short.MAX_VALUE))
 		);
+
 		f.getContentPane().setLayout(groupLayout);
-		
 		f.setVisible(true);
 	}
 	
@@ -113,7 +113,7 @@ public class Opening {
 				+ "2. you can't have 3 of the same colour side by side in a row/column;\n"
 				+ "3. in every row/column, there must be the same number of blues and reds;\n"
 				+ "4. no column/row can have the same colour pattern.\n"
-				+ "That's it, have fun!");
+				+ "That's it, have fun! :D");
 		messageText.setBounds(100, 100, 600, 250);
 		messageText.setBackground(Color.black);
 		messageText.setForeground(Color.white);
@@ -153,6 +153,7 @@ public class Opening {
 					.addComponent(backPanel, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
 					.addGap(286))
 		);
+
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -161,6 +162,7 @@ public class Opening {
 					.addComponent(backPanel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 					.addGap(113))
 		);
+
 		f.getContentPane().setLayout(groupLayout);
 	}
 	
@@ -178,14 +180,14 @@ public class Opening {
 			f.setVisible(false);
 			messagePanel.setVisible(false);
 			backPanel.setVisible(false);
-			Game game = new NGame();
+			Game game = new Game();
 		}
 	}
 	
 	public class how2play implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			Rules();
-			} 
+		} 
 	}
 	
 	public class backToStart implements ActionListener {
@@ -194,7 +196,6 @@ public class Opening {
 			messagePanel.setVisible(false);
 			backPanel.setVisible(false);
 			new Opening();
-    } 
-		
+    	} 
 	}
 }

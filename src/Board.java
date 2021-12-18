@@ -25,7 +25,8 @@ public class Board extends JPanel {
         
         printGrid();
         
-        int[][] e = emptyBoardGenerator(); // gets the empty board, but we don't know the values of each non empty space (we just know that they're non empty)
+		// gets the empty board, but we don't know the values of each non empty space (we just know that they're non empty)
+        int[][] e = emptyBoardGenerator(); 
         
         for (int i = 0; i < 4; i++) {
     		for (int j = 0; j < 4; j++) {
@@ -35,8 +36,10 @@ public class Board extends JPanel {
         
         for (int i = 0; i < 4; i++) {
         	for (int j = 0; j < 4; j++) {
-        		if (e[i][j] != 0) { // if the space is non empty
-        			finalBoard[i][j] = vals[i][j]; // then the value of the ij space of the final board = the ij space from the full board
+				// if the space is non empty
+				// then the value of the ij space of the final board = the ij space from the full board
+        		if (e[i][j] != 0) { 
+        			finalBoard[i][j] = vals[i][j]; 
         		}
         	}
         }
@@ -101,11 +104,13 @@ public class Board extends JPanel {
     	}
     	    	
     	return chosen;
-    	
     }
-    
-    public int[][] emptyBoardGenerator() { // after choosing spaces to keep, proceed to generate an empty board with those spaces filled in
+
+    // after choosing spaces to keep, proceed to generate an empty board with those spaces filled in
+    public int[][] emptyBoardGenerator() { 
+
     	int[][] emptyBoard = new int[4][4];
+
     	for (int i = 0; i < 4; i++) {
     		for (int j = 0; j < 4; j++) {
     			emptyBoard[i][j] = 0;
@@ -133,6 +138,5 @@ public class Board extends JPanel {
     	
     	return emptyBoard;
     }
-    
     
 }

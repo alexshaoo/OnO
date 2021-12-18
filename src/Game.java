@@ -87,7 +87,7 @@ public class Game extends JFrame{
         timer.scheduleAtFixedRate(new TimerTask() {
 
             public void run() {
-//		        timerLabel.setText("Time left: " + setInterval());
+		        // timerLabel.setText("Time left: " + setInterval());
                 timerButton.setText("Time left: " + setInterval());
             }
         }, delay, period);
@@ -96,8 +96,7 @@ public class Game extends JFrame{
     private static final int setInterval() {
         if (interval == 0) {
             timer.cancel();
-            JOptionPane.showMessageDialog(null, "TIME UP!",
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "TIME UP!", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
         return --interval;
